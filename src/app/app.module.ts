@@ -4,6 +4,9 @@ import { HttpModule, Http } from '@angular/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { Storage, IonicStorageModule } from '@ionic/storage';
 
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+
 import { MyApp } from './app.component';
 
 import { CardsPage } from '../pages/cards/cards';
@@ -39,6 +42,29 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
+
+// AF2 Settings
+export const firebaseConfig = {
+  apiKey: "AIzaSyCNmiZLeJ2_aYhSBjNOSCY6sPHgMXT0Nsw",
+  authDomain: "yourstorybook-23b4d.firebaseapp.com",
+  databaseURL: "https://yourstorybook-23b4d.firebaseio.com",
+  storageBucket: "",
+  messagingSenderId: "715445929506"
+};
+/*<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCNmiZLeJ2_aYhSBjNOSCY6sPHgMXT0Nsw",
+    authDomain: "yourstorybook-23b4d.firebaseapp.com",
+    databaseURL: "https://yourstorybook-23b4d.firebaseio.com",
+    projectId: "yourstorybook-23b4d",
+    storageBucket: "",
+    messagingSenderId: "715445929506"
+  };
+  firebase.initializeApp(config);
+</script> */
+
+
 
 export function provideSettings(storage: Storage) {
   /**
@@ -84,6 +110,7 @@ export function provideSettings(storage: Storage) {
       }
     }),
     IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],

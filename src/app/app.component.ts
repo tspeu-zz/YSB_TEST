@@ -33,7 +33,7 @@ import { TranslateService } from '@ngx-translate/core'
     <ion-content>
       <ion-list>
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
+          {{p.title}}Ejemplo
         </button>
       </ion-list>
     </ion-content>
